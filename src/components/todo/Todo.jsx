@@ -12,7 +12,7 @@ function Todo()
         })
         createNewTodo("")
     }
-    function toggleTask(id, completed) {
+    function toggleTodo(id, completed) {
         setTodo(currentTodo => {
           return currentTodo.map(todo => {
             if (todo.id === id) {
@@ -21,6 +21,11 @@ function Todo()
             return todo
           }
           )
+        })
+      }
+      function deleteTodo(id) {
+        setTodo(currentTodo => {
+          return currentTodo.filter(todo => todo.id !== id)
         })
       }
     return (
