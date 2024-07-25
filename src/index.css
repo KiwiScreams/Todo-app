@@ -31,3 +31,7 @@ body
   --font-size-18px: 18px;
   --letter-spacing-15: 15px;
 }
+button
+{
+  background-color: transparent;
+}
