@@ -1,13 +1,38 @@
 import "./Todo.css"
-function Todo() {
+import { useState } from "react";
+function Todo()
+{
+    const [newTodo, createNewTodo] = useState("");
+    const [todos, setTodo] = useState([]);
+    function handleSubmit(e)
+    {
+        e.preventDefault()
+        setTodo(currentTodo => {
+          return [...currentTodo, { id: crypto.randomUUID(), title: newTodo, completed: false }]
+        })
+        createNewTodo("")
+    }
+    function toggleTask(id, completed) {
+        setTodo(currentTodo => {
+          return currentTodo.map(todo => {
+            if (todo.id === id) {
+              return { ...todo, completed }
+            }
+            return todo
+          }
+          )
+        })
+      }
     return (
         <>
-            <section className="todo-container">
+            <form className="todo-container" onSubmit={handleSubmit} 
+            value={newTodo}
+              onChange={e => createNewTodo(e.target.value)}>
                 <div className="input-container">
                     <div className="round"></div>
                     <input type="text" name="todo-input" id="todo-input" placeholder="Create a new todo…" />
                 </div>
-            </section>
+            </form>
         </>
     )
 }
