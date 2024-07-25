@@ -53,7 +53,7 @@ function Todo() {
                     value={newTodo}
                     onChange={e => createNewTodo(e.target.value)}>
                     <div className="input-container">
-                        <button className="round"></button>
+                        <button className="round" disabled={newTodo.trim() === ""}></button>
                         <input type="text" name="todo-input" id="todo-input" placeholder="Create a new todo…" />
                     </div>
                 </form>
