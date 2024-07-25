@@ -3,6 +3,8 @@ import { useState } from "react";
 function Todo() {
     const [newTodo, createNewTodo] = useState("");
     const [todos, setTodo] = useState([]);
+    const [dragging, setDragging] = useState(null);
+
     function handleSubmit(e) {
         e.preventDefault()
         setTodo(currentTodo => {
@@ -26,6 +28,24 @@ function Todo() {
             return currentTodo.filter(todo => todo.id !== id)
         })
     }
+    function handleDragStart(e, id) {
+        setDragging(id);
+    }
+
+    function handleDragOver(e) {
+        e.preventDefault();
+    }
+    function handleDrop(e, id) {
+        if (dragging !== id) {
+            const newTodos = [...todos];
+            const draggedTodo = newTodos.find(todo => todo.id === dragging);
+            const droppedTodo = newTodos.find(todo => todo.id === id);
+            const draggedIndex = newTodos.indexOf(draggedTodo);
+            const droppedIndex = newTodos.indexOf(droppedTodo);
+            newTodos.splice(droppedIndex, 0, newTodos.splice(draggedIndex, 1)[0]);
+            setTodo(newTodos);
+        }
+    }
     return (
         <>
             <section className="todo-about">
@@ -38,19 +58,28 @@ function Todo() {
                     </div>
                 </form>
                 <ul className="todo-section">
-                    {todos.length === 0 && "No ToDos"}
                     {todos.map(todo => {
-                        return <li key={todo.id}>
-                            <label>
-                                <input type="checkbox" checked={todo.completed} onChange={e => toggleTask(todo.id, e.target.checked)} />
-                                {todo.title}
-                            </label>
-                            <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+                        return <li key={todo.id} className="todo" draggable={true}
+                            onDragStart={e => handleDragStart(e, todo.id)}
+                            onDragOver={handleDragOver}
+                            onDrop={e => handleDrop(e, todo.id)}>
+                            <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} />
+                            {todo.title}
                         </li>
                     }
                     )}
+                    <div className="filter-container">
+                        <p> items left</p>
+                        <div className="buttons">
+                            <button>All</button>
+                            <button>Active</button>
+                            <button>Completed</button>
+                        </div>
+                        <button onClick={() => deleteTodo}>Clear Completed</button>
+                    </div>
                 </ul>
             </section>
+            <p className="drag-drop">Drag and drop to reorder list</p>
         </>
     )
 }
