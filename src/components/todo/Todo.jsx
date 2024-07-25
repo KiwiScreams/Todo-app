@@ -10,7 +10,8 @@ function Todo() {
         setTodo(currentTodo => {
             return [...currentTodo, { id: crypto.randomUUID(), title: newTodo, completed: false }]
         })
-        createNewTodo("")
+        e.target.reset();
+        createNewTodo("");
     }
     function toggleTodo(id, completed) {
         setTodo(currentTodo => {
@@ -53,7 +54,7 @@ function Todo() {
                     value={newTodo}
                     onChange={e => createNewTodo(e.target.value)}>
                     <div className="input-container">
-                        <button className="round" disabled={newTodo.trim() === ""}></button>
+                        <button className="round" ></button>
                         <input type="text" name="todo-input" id="todo-input" placeholder="Create a new todo…" />
                     </div>
                 </form>

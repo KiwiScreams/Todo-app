@@ -36,3 +36,7 @@ button
 {
   background-color: transparent;
 }
+.dragging
+{
+  background-color: red;
+}
