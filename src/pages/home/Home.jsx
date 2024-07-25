@@ -7,7 +7,7 @@ function Home() {
             <section className="main-container">
                 <div className="main-header">
                     <h1>TODO</h1>
-                    <div>
+                    <div className="theme-switch">
                         <img src={themeIcon} alt="theme-icon" />
                     </div>
                 </div>

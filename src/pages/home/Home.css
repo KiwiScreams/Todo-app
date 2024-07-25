@@ -7,4 +7,19 @@
     background-repeat: no-repeat;
     padding-top: 70px;
 }
-.main-container .theme
+.main-container .main-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    margin: auto;
+}
+.main-container .main-header h1
+{
+    color: var(--white-clr);
+    font-weight: var(--font-weight-700);
+    font-size: var(--font-size-40px);
+    letter-spacing: var(--letter-spacing-15);
+    font-family: 'josefin';
+}

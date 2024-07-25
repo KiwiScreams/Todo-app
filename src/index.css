@@ -12,3 +12,14 @@ body
   height: 100vh;
   overflow: hidden;
 }
+@font-face {
+  font-family: 'josefin';
+  src: url(./assets/fonts/Bellefair\,Josefin_Sans/Josefin_Sans/JosefinSans-VariableFont_wght.ttf);
+}
+:root
+{
+  --white-clr: #fff;
+  --font-weight-700: 700;
+  --font-size-40px: 40px;
+  --letter-spacing-15: 15px;
+}
