@@ -5,6 +5,8 @@
   box-sizing: border-box;
   text-decoration: none;
   list-style-type: none;
+  border: none;
+  outline: none;
 }
 body
 {
@@ -19,7 +21,13 @@ body
 :root
 {
   --white-clr: #fff;
+  --light-gray-clr: #E3E4F1;
+  --gray-clr: #C2C3D6;
+  --dark-gray-clr: #9495A5;
+  --dark-clr: #393A4B;
   --font-weight-700: 700;
+  --font-weight-400: 400;
   --font-size-40px: 40px;
+  --font-size-18px: 18px;
   --letter-spacing-15: 15px;
 }
