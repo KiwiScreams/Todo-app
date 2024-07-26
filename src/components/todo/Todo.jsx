@@ -74,7 +74,7 @@ function Todo() {
                     </div>
                 </form>
                 <ul className="todo-section">
-                    {todos.length === 0 && (<p className="no-items">To-do list is empty</p>)}
+                    {todos.length === 0 && (<p className="no-items">To-do list is empty... <i className="fa-regular fa-face-laugh-beam"></i></p>)}
                     {filteredTodos.map((todo) => (
                         <li key={todo.id} className="todo" draggable={true}
                             onDragStart={e => handleDragStart(e, todo.id)}
@@ -89,7 +89,7 @@ function Todo() {
                 <div className="filter-container">
                     <div className="filter">
                         <p>{leftCount} items left</p>
-                        <div className="buttons">
+                        <div className="buttons display-none">
                             <button onClick={() => handleFilterChaange('all')} className={filter === 'all' ? 'active' : ''}
                                 style={filter === 'all' ? { color: '#3A7CFD' } : {}}>All</button>
                             <button onClick={() => handleFilterChaange('active')} className={filter === 'active' ? 'active' : ''}
@@ -97,7 +97,15 @@ function Todo() {
                             <button onClick={() => handleFilterChaange('completed')} className={filter === 'completed' ? 'active' : ''}
                                 style={filter === 'completed' ? { color: '#3A7CFD' } : {}}>Completed</button>
                         </div>
-                        <button onClick={clearCompletedTodos}>Clear Completed</button>
+                        <button onClick={clearCompletedTodos} className="clear">Clear Completed</button>
+                    </div>
+                    <div className="buttons display">
+                        <button onClick={() => handleFilterChaange('all')} className={filter === 'all' ? 'active' : ''}
+                            style={filter === 'all' ? { color: '#3A7CFD' } : {}}>All</button>
+                        <button onClick={() => handleFilterChaange('active')} className={filter === 'active' ? 'active' : ''}
+                            style={filter === 'active' ? { color: '#3A7CFD' } : {}}>Active</button>
+                        <button onClick={() => handleFilterChaange('completed')} className={filter === 'completed' ? 'active' : ''}
+                            style={filter === 'completed' ? { color: '#3A7CFD' } : {}}>Completed</button>
                     </div>
                 </div>
             </section>

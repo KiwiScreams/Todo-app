@@ -11,6 +11,10 @@ function Home() {
             newTheme === 'light' ? `var(--background-image-light)` : `var(--background-image-dark)`
         );
         document.documentElement.style.setProperty(
+            '--background-small-image',
+            newTheme === 'light' ? `var(--background-small-image-light)` : `var(--background-small-image-dark)`
+        );
+        document.documentElement.style.setProperty(
             '--background-color',
             newTheme === 'light' ? 'var(--background-color-light)' : 'var(--background-color-dark)'
         );
