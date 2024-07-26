@@ -1,6 +1,6 @@
 import Todo from "../../components/todo/Todo"
 import "./Home.css"
-import { useCallback, useState } from "react";
+import { useState } from "react";
 function Home() {
     const [theme, setTheme] = useState('light');
     const toggleTheme = () => {

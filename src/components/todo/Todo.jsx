@@ -74,6 +74,7 @@ function Todo() {
                     </div>
                 </form>
                 <ul className="todo-section">
+                    {todos.length === 0 && (<p className="no-items">To-do list is empty</p>)}
                     {filteredTodos.map((todo) => (
                         <li key={todo.id} className="todo" draggable={true}
                             onDragStart={e => handleDragStart(e, todo.id)}

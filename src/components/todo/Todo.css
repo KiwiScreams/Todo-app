@@ -7,7 +7,7 @@
 {
     width: 100%;
     padding: 20px 24px;
-    background-color: var(--white-clr);
+    background-color: var(--background-color-input);
     display: flex;
     box-shadow: var(--gray-clr) 0 35px 50px -15px;
     border-radius: 6px;
@@ -18,6 +18,7 @@
     color: var(--dark-clr);
     font-weight: var(--font-weight-400);
     font-size: var(--font-size-18px);
+    background-color: transparent;
 }
 .todo-container .input-container input::placeholder
 {
@@ -39,13 +40,13 @@
 .todo-section
 {
     width: 30%;
-    background-color: var(--white-clr);
+    background-color: var(--background-color-input);
     margin: auto;
     margin-top: 24px;
     border-radius: 6px;
     height: 400px;
     overflow-y: scroll;
-    box-shadow: 0 35px 50px -15px #C2C3D6;
+    box-shadow: 0 35px 50px -15px hsla(0, 0%, 0%, 0.5);
     position: relative;
 }
 .todo-section::-webkit-scrollbar
@@ -75,7 +76,7 @@
 {
     appearance: none;
     width: 24px;
-    accent-color: var(--white-clr);
+    accent-color: var(--background-color-input);
     height: 24px;
     border-radius: 50%;
     border: 1px solid var(--light-gray-clr);
@@ -85,14 +86,14 @@
 {
     background: linear-gradient(to right bottom, #55DDFF, #C058F3);
     border-color: var(--light-gray-clr);
-    accent-color: var(--white-clr);
+    accent-color: var(--background-color-input);
     position: relative;
 }
 .todo-section input[type="checkbox"]:checked::before
 {
     content: url(../../assets/images/icon-check.svg);
     font-size: 18px;
-    color: var(--white-clr);
+    color: var(--background-color-input);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -120,19 +121,39 @@
     width: 30%;
     padding: 20px 24px;
     border-top: 1px solid #E3E4F1;
+    background-color: var(--background-color-input);
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    color: #9495a5;
 }
 .filter-container .buttons button
 {
     font-weight: var(--font-weight-700);
     color: #9495A5;
 }
+.filter-container button
+{
+    color: #9495a5;
+}
 .drag-drop
 {
     text-align: center;
     margin-top: 50px;
     color: #9495A5;
+}
+ul li
+{
+    color: var(--li-clr);
+    font-size: var(--font-size-18px);
+}
+.no-items
+{
+    color: #9495a5;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 24px;
 }
