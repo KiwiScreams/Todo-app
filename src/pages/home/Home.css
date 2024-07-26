@@ -25,3 +25,18 @@
     letter-spacing: var(--letter-spacing-15);
     font-family: 'josefin';
 }
+.moon
+{
+    background-image: url(../../assets/images/icon-moon.svg);
+}
+.sun
+{
+    background-image: url(../../assets/images/icon-sun.svg);
+}
+.theme-switch
+{
+    width: 26px;
+    height: 26px;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+}

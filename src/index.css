@@ -32,12 +32,12 @@ body
   --font-size-40px: 40px;
   --font-size-18px: 18px;
   --letter-spacing-15: 15px;
-  --background-image: url(./assets/images/bg-desktop-light.jpg);
+  --background-image-light: url(./assets/images/bg-desktop-light.jpg);
+  --background-image-dark: url(./assets/images/bg-desktop-dark.jpg);
 }
 :root[data-theme="dark"]
 {
   --light-gray-clr: rgb(22, 22, 22);
-  --background-image: url(./assets/images/bg-desktop-dark.jpg);
 }
 button
 {

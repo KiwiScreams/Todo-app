@@ -64,7 +64,7 @@ function Todo() {
     })
     return (
         <>
-            <section className="todo-about" data-theme={theme}>
+            <section className="todo-about">
                 <form className="todo-container" onSubmit={handleSubmit}
                     value={newTodo}
                     onChange={e => createNewTodo(e.target.value)}>
