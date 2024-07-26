@@ -26,11 +26,18 @@ body
   --gray-clr: #C2C3D6;
   --dark-gray-clr: #9495A5;
   --dark-clr: #393A4B;
+  --blue-clr: #3A7CFD;
   --font-weight-700: 700;
   --font-weight-400: 400;
   --font-size-40px: 40px;
   --font-size-18px: 18px;
   --letter-spacing-15: 15px;
+  --background-image: url(./assets/images/bg-desktop-light.jpg);
+}
+:root[data-theme="dark"]
+{
+  --light-gray-clr: rgb(22, 22, 22);
+  --background-image: url(./assets/images/bg-desktop-dark.jpg);
 }
 button
 {

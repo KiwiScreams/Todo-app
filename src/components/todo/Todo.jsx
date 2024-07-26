@@ -2,6 +2,7 @@ import "./Todo.css"
 import { useState } from "react";
 function Todo() {
     const [newTodo, createNewTodo] = useState("");
+    const [filter, setFilter] = useState('all');
     const [todos, setTodo] = useState([]);
     const [dragging, setDragging] = useState(null);
     const leftCount = todos.filter(todo => !todo.completed).length;
@@ -53,9 +54,17 @@ function Todo() {
             setTodo(newTodos);
         }
     }
+    const handleFilterChaange = (filter) => {
+        setFilter(filter);
+    }
+    const filteredTodos = todos.filter((todo) => {
+        if (filter === 'all') return true;
+        if (filter === 'active') return !todo.completed;
+        if (filter === 'completed') return todo.completed;
+    })
     return (
         <>
-            <section className="todo-about">
+            <section className="todo-about" data-theme={theme}>
                 <form className="todo-container" onSubmit={handleSubmit}
                     value={newTodo}
                     onChange={e => createNewTodo(e.target.value)}>
@@ -65,24 +74,26 @@ function Todo() {
                     </div>
                 </form>
                 <ul className="todo-section">
-                    {todos.map(todo => {
-                        return <li key={todo.id} className="todo" draggable={true}
+                    {filteredTodos.map((todo) => (
+                        <li key={todo.id} className="todo" draggable={true}
                             onDragStart={e => handleDragStart(e, todo.id)}
                             onDragOver={handleDragOver}
                             onDrop={e => handleDrop(e, todo.id)}>
                             <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} />
                             {todo.title}
                         </li>
-                    }
-                    )}
+                    ))}
                 </ul>
                 <div className="filter-container">
                     <div className="filter">
                         <p>{leftCount} items left</p>
                         <div className="buttons">
-                            <button>All</button>
-                            <button>Active</button>
-                            <button>Completed</button>
+                            <button onClick={() => handleFilterChaange('all')} className={filter === 'all' ? 'active' : ''}
+                                style={filter === 'all' ? { color: '#3A7CFD' } : {}}>All</button>
+                            <button onClick={() => handleFilterChaange('active')} className={filter === 'active' ? 'active' : ''}
+                                style={filter === 'active' ? { color: '#3A7CFD' } : {}}>Active</button>
+                            <button onClick={() => handleFilterChaange('completed')} className={filter === 'completed' ? 'active' : ''}
+                                style={filter === 'completed' ? { color: '#3A7CFD' } : {}}>Completed</button>
                         </div>
                         <button onClick={clearCompletedTodos}>Clear Completed</button>
                     </div>
