@@ -82,6 +82,7 @@ function Todo() {
                             onDrop={e => handleDrop(e, todo.id)}>
                             <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} />
                             {todo.title}
+                            <button onClick={() => deleteTodo(todo.id)} className="delete"></button>
                         </li>
                     ))}
                 </ul>

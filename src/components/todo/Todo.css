@@ -57,7 +57,7 @@
 .todo-section li
 {
     padding: 20px 24px;
-    border-bottom: 1px solid #E3E4F1;
+    border-bottom: 1px solid var(--border-clr);
 }
 .todo-section input
 {
@@ -120,7 +120,7 @@
 {
     width: 30%;
     padding: 20px 24px;
-    border-top: 1px solid #E3E4F1;
+    border-top: 1px solid var(--border-clr);
     background-color: var(--background-color-input);
     margin: auto;
     display: flex;
@@ -156,4 +156,30 @@ ul li
     font-size: 20px;
     margin-left: 20px;
     margin-top: 24px;
+}
+.delete
+{ 
+    position: absolute;
+    right: 24px;
+    width: 18px;
+    height: 18px;
+    visibility: hidden;
+    background: url(../../assets/images/icon-cross.svg);
+}
+ul li:hover
+{
+    cursor: pointer;
+}
+ul li:hover .delete
+{
+    visibility: visible;
+}
+ul li:hover input[type="checkbox"]
+{
+    border: 3px solid;
+    border-image-source: linear-gradient(to right, #55DDFF, #C058F3);
+    border-image-slice: 1;    
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
 }
