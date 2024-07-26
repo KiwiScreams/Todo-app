@@ -184,6 +184,8 @@ ul li:hover .delete
 .display
 {
     display: none;
+    width: 90%;
+    background: var(--background-color-input);
 }
 @media screen and (max-width: 1440px)
 {
