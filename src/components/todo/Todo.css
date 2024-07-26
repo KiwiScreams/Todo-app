@@ -32,6 +32,10 @@
     border-radius: 50%;
     margin-right: 20px;
 }
+.todo-about
+{
+    position: relative;
+}
 .todo-section
 {
     width: 30%;
@@ -97,21 +101,29 @@
 .filter-container
 {
     position: absolute;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
-    border-top: 1px solid #E3E4F1;
-    padding: 20px 24px;
     z-index: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.filter-container .buttons
+.filter-container .filter .buttons
 {
+    gap: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+}
+.filter-container .filter
+{
+    width: 30%;
+    padding: 20px 24px;
+    border-top: 1px solid #E3E4F1;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .filter-container .buttons button
 {

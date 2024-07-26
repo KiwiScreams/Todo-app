@@ -4,7 +4,8 @@ function Todo() {
     const [newTodo, createNewTodo] = useState("");
     const [todos, setTodo] = useState([]);
     const [dragging, setDragging] = useState(null);
-
+    const leftCount = todos.filter(todo => !todo.completed).length;
+    const completedCount = todos.filter(todo => todo.completed).length;
     function handleSubmit(e) {
         e.preventDefault()
         setTodo(currentTodo => {
@@ -27,6 +28,11 @@ function Todo() {
     function deleteTodo(id) {
         setTodo(currentTodo => {
             return currentTodo.filter(todo => todo.id !== id)
+        })
+    }
+    function clearCompletedTodos() {
+        setTodo(currentTodo => {
+            return currentTodo.filter(todo => !todo.completed);
         })
     }
     function handleDragStart(e, id) {
@@ -54,7 +60,7 @@ function Todo() {
                     value={newTodo}
                     onChange={e => createNewTodo(e.target.value)}>
                     <div className="input-container">
-                        <button className="round" ></button>
+                        <button className="round" disabled={newTodo.trim() === ""}></button>
                         <input type="text" name="todo-input" id="todo-input" placeholder="Create a new todo…" />
                     </div>
                 </form>
@@ -69,16 +75,18 @@ function Todo() {
                         </li>
                     }
                     )}
-                    <div className="filter-container">
-                        <p> items left</p>
+                </ul>
+                <div className="filter-container">
+                    <div className="filter">
+                        <p>{leftCount} items left</p>
                         <div className="buttons">
                             <button>All</button>
                             <button>Active</button>
                             <button>Completed</button>
                         </div>
-                        <button onClick={() => deleteTodo}>Clear Completed</button>
+                        <button onClick={clearCompletedTodos}>Clear Completed</button>
                     </div>
-                </ul>
+                </div>
             </section>
             <p className="drag-drop">Drag and drop to reorder list</p>
         </>
