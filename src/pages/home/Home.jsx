@@ -7,22 +7,14 @@ function Home() {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
         document.documentElement.style.setProperty(
-            '--background-image-light',
-            `../../assets/images/bg-desktop-light.jpg`
-          );
-          document.documentElement.style.setProperty(
-            '--background-image-dark',
-            `../../assets/images/bg-desktop-dark.jpg`
-          );
-          document.documentElement.style.setProperty(
             '--background-image',
             newTheme === 'light' ? `var(--background-image-light)` : `var(--background-image-dark)`
-          );
-          document.documentElement.style.setProperty(
+        );
+        document.documentElement.style.setProperty(
             '--background-color',
             newTheme === 'light' ? 'var(--background-color-light)' : 'var(--background-color-dark)'
-          );
-      };
+        );
+    };
     return (
         <>
             <section className="main-container" data-theme={theme}>
