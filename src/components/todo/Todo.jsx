@@ -11,11 +11,14 @@ function Todo() {
         e.preventDefault()
         const checkbox = e.target.querySelector('input[type="checkbox"]');
         const completed = checkbox.checked;
-        setTodo(currentTodo => {
-            return [...currentTodo, { id: crypto.randomUUID(), title: newTodo, completed }]
-        })
-        e.target.reset();
-        createNewTodo("");
+        const title = newTodo.trim();
+        if (title !== "") {
+            setTodo(currentTodo => {
+                return [...currentTodo, { id: crypto.randomUUID(), title, completed }]
+            })
+            e.target.reset();
+            createNewTodo("");
+        }
     }
     function toggleTodo(id, completed) {
         setTodo(currentTodo => {
@@ -71,7 +74,7 @@ function Todo() {
                     value={newTodo}
                     onChange={e => createNewTodo(e.target.value)}>
                     <div className="input-container">
-                        <input className="round" type="checkbox" disabled={newTodo.trim() === ""} />
+                        <input className="round" type="checkbox" />
                         <input type="text" name="todo-input" id="todo-input" placeholder="Create a new todo…" />
                     </div>
                 </form>
