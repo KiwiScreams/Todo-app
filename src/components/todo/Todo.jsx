@@ -9,8 +9,10 @@ function Todo() {
     const completedCount = todos.filter(todo => todo.completed).length;
     function handleSubmit(e) {
         e.preventDefault()
+        const checkbox = e.target.querySelector('input[type="checkbox"]');
+        const completed = checkbox.checked;
         setTodo(currentTodo => {
-            return [...currentTodo, { id: crypto.randomUUID(), title: newTodo, completed: false }]
+            return [...currentTodo, { id: crypto.randomUUID(), title: newTodo, completed }]
         })
         e.target.reset();
         createNewTodo("");
@@ -69,7 +71,7 @@ function Todo() {
                     value={newTodo}
                     onChange={e => createNewTodo(e.target.value)}>
                     <div className="input-container">
-                        <button className="round" disabled={newTodo.trim() === ""}></button>
+                        <input className="round" type="checkbox" disabled={newTodo.trim() === ""} />
                         <input type="text" name="todo-input" id="todo-input" placeholder="Create a new todo…" />
                     </div>
                 </form>
