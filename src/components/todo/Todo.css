@@ -9,13 +9,13 @@
     padding: 20px 24px;
     background-color: var(--background-color-input);
     display: flex;
-    box-shadow: var(--gray-clr) 0 35px 50px -15px;
+    box-shadow: var(--shadow-clr) 0 35px 50px -15px;
     border-radius: 6px;
 }
 .todo-container .input-container input
 {
     width: 100%;
-    color: var(--dark-clr);
+    color: var(--input-clr);
     font-weight: var(--font-weight-400);
     font-size: var(--font-size-18px);
     background-color: transparent;
@@ -46,7 +46,7 @@
     border-radius: 6px;
     height: 400px;
     overflow-y: scroll;
-    box-shadow: 0 35px 50px -15px hsla(0, 0%, 0%, 0.5);
+    box-shadow: 0 35px 50px -15px var(--shadow-clr);
     position: relative;
 }
 .todo-section::-webkit-scrollbar
@@ -210,4 +210,9 @@ ul li:hover .delete
 button, a
 {
     cursor: pointer;
+}
+.completed
+{
+    text-decoration: line-through;
+    color: var(--completed-clr);
 }

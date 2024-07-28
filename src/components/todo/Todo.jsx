@@ -81,14 +81,14 @@ function Todo() {
                 <ul className="todo-section">
                     {todos.length === 0 && (<p className="no-items">To-do list is empty... <i className="fa-regular fa-face-laugh-beam"></i></p>)}
                     {filteredTodos.map((todo) => (
-                        <li key={todo.id} className="todo" draggable={true}
-                            onDragStart={e => handleDragStart(e, todo.id)}
-                            onDragOver={handleDragOver}
-                            onDrop={e => handleDrop(e, todo.id)}>
-                            <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} />
-                            {todo.title}
-                            <button onClick={() => deleteTodo(todo.id)} className="delete"></button>
-                        </li>
+                        <li key={todo.id} className={`todo ${todo.completed ? 'completed' : ''}`} draggable={true}
+                        onDragStart={e => handleDragStart(e, todo.id)}
+                        onDragOver={handleDragOver}
+                        onDrop={e => handleDrop(e, todo.id)}>
+                        <input type="checkbox" checked={todo.completed} onChange={e => toggleTodo(todo.id, e.target.checked)} />
+                        <span>{todo.title}</span>
+                        <button onClick={() => deleteTodo(todo.id)} className="delete"></button>
+                      </li>
                     ))}
                 </ul>
                 <div className="filter-container">

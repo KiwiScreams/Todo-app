@@ -44,6 +44,9 @@ body
   --background-image-light: url(./assets/images/bg-desktop-light.jpg);
   --background-image-dark: url(./assets/images/bg-desktop-dark.jpg);
   --button-clr: #494C6B;
+  --input-clr: #9495A5;
+  --shadow-clr: hsla(237, 20%, 80%, 0.5);
+  --completed-clr: #D1D2DA;
 }
 [data-theme="dark"]
 {
@@ -51,6 +54,9 @@ body
   --li-clr: #C8CBE7;
   --border-clr: #393A4B;
   --button-clr: #E3E4F1;
+  --input-clr: #767992;
+  --shadow-clr: hsla(0, 0%, 0%, 0.5);
+  --completed-clr: #4D5067;
 }
 button
 {
