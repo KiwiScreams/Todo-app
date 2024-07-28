@@ -75,6 +75,11 @@
     .filter-container {
         flex-direction: column;
     }
+
+    .display {
+        width: 90%;
+        border-radius: 6px;
+    }
 }
 
 @media screen and (max-width: 1440px) {

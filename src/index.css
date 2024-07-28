@@ -62,3 +62,10 @@ button
 {
   background-color: transparent;
 }
+@media screen and (max-width: 500px)
+{
+ body
+ {
+  overflow-y: scroll;
+ } 
+}
